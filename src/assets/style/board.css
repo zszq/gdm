@@ -1,0 +1,197 @@
+
+.board {
+  width: 100%;
+  height: 100%;
+  /* max-width: 1920px; */
+  /* margin: 0 auto; */
+}
+.header {
+  width: 100%;
+  height: 100px;
+  background: url(../images/top_bgc.png) no-repeat center;
+  background-size: 100% 100%;
+  color: #fff;
+  position: relative;
+}
+/* 搜索 */
+.header .search{
+  width: 20%;
+  height: 30px;
+  position: absolute;
+  left: 7.2%;
+  top: 8%;
+}
+.header .search input {
+  width: 90%;
+  height: 20px;
+  background-color: #0b2451;
+  color: #fff;
+  border: none;
+  outline: none;
+  padding: 5px 15px;
+  padding-right: 10%;
+  border-radius: 15px;
+  box-shadow: inset 0px 0px 2px 2px #245888;
+}
+.header .search img {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+}
+/* 标题 */
+.header .title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.header .title img{
+  width: 45px;
+  height: 45px;
+  vertical-align: middle;
+}
+.header .title span {
+  font-size: 36px;
+  font-weight: bold;
+  vertical-align: middle;
+  color: #fff;
+  background-image: -webkit-gradient(linear, 0 0, 0 bottom, from(rgba(255, 255, 255, 255)), to(rgb(17, 109, 116)));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+/* 时间 */
+.header .time_home {
+  position: absolute;
+  right: 20px;
+  top: 5px;
+}
+.header .time_home span {
+  margin-right: 100px;
+  font-family: AlibabaPuHuiTiM;
+  font-weight: 500;
+  color: rgba(255,255,255,1);
+}
+.header .time_home img {
+  width: 23px;
+  height: 24px;
+}
+.header .time_home img:last-child {
+  margin-left: 20px;
+}
+/* 顶部总数 */
+.header .info-wrap {
+  width: 100%;
+  margin-top: 58px;
+}
+.header .door-sum {
+  color: #3ffaef;
+}
+.header .car-sum {
+  color: #41befe;
+}
+.header .Monitor-sum {
+  color: #f88818;
+}
+
+/* 主要数据 */
+.main {
+  width: 100%;
+  height: 85%;
+  margin: 10px 0;
+}
+.container {
+  height: 30%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 20px;
+  box-shadow: inset 0px 0px 8px 5px #245888;
+}
+.main .main-left, .main-right {
+  margin: 0 20px;
+  width: 35%;
+}
+/* 中间 */
+.main-center {
+  width: 100%;
+  height: 100%;
+  margin: 0 20px;
+  overflow: hidden;
+}
+.main-center .wrap {
+  padding: 15px;
+  border-radius: 20px;
+  box-shadow: inset 0px 0px 8px 5px #245888;
+}
+.main-center .info {
+  padding: 20px;
+  border-radius: 20px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #ccc;
+  box-shadow: inset 0px 0px 8px 5px #245888;
+}
+.main-center .annunciate {
+  margin-bottom: 20px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #ccc;
+}
+.main-center .list li {
+  padding: 10px 0;
+}
+
+.slide-left-enter,
+.slide-right-leave-active {
+  opacity: 0;
+  transform: translate(50%, 0);
+}
+.slide-left-leave-active,
+.slide-right-enter {
+  opacity: 0;
+  transform: translate(-50%, 0);
+}
+/* 底部 */
+.footer {
+  width: 100%;
+  height: 40px;
+  background: url(../images/bottom_bgc.png) no-repeat center;
+  background-size: 100% 100%;
+}
+.footer .msg-box {
+  width: 26%;
+  height: 40px;
+  line-height: 40px;
+  overflow : hidden;
+  white-space: nowrap;
+}
+.footer .msg-box p img {
+  width: 14px;
+  height: 12px;
+  vertical-align: middle;
+}
+.footer .msg-box p span {
+  font-size:14px;
+  font-family:AlibabaPuHuiTiM;
+  font-weight:500;
+  color:rgba(255,255,255,1);
+  vertical-align: middle;
+}
+/* 消息滚动 */
+.footer .msg-box p {
+  animation: wordsLoop 20s linear infinite normal;
+}
+@keyframes wordsLoop {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+
+
