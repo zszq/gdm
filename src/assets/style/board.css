@@ -2,8 +2,8 @@
 .board {
   width: 100%;
   height: 100%;
-  /* max-width: 1920px; */
-  /* margin: 0 auto; */
+  min-width: 1440px;
+  min-height: 720px;
 }
 .header {
   width: 100%;
@@ -142,6 +142,22 @@
 }
 .main-center .list li {
   padding: 10px 0;
+}
+.listWarn {
+  border-radius: 20px;
+  box-shadow: inset 0px 0px 8px 5px #245888;
+}
+.listWarn table tr {
+  color: #9cb3e4;
+  border-bottom: 1px solid #385265;
+}
+.listWarn table tr th {
+  padding: 10px;
+  color: #ccc;
+}
+.listWarn table tr td {
+  padding: 10px;
+  vertical-align: middle;
 }
 
 .slide-left-enter,

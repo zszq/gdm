@@ -28,7 +28,7 @@ var charts = {
           color: "rgba(156,179,228,1)"
         }
       },
-      // color: ['#3ff9ee', '#fa871a', '#44beff', '#f3ba0b'],
+      color: ['#d53a35', '#9fdabf', '#334b5c', '#7fae90', '#6ab0b8', '#e98f6f'],
       series: [{
         name: data.s_name,
         type: 'pie',
@@ -36,7 +36,11 @@ var charts = {
         center: ['60%', '50%'],
         label: {
           show: true,
-          formatter: "{d}%"
+          formatter: "{b}({d}%)"
+        },
+        labelLine: {
+          length: 8,
+          length2: 8
         },
         data: data.data,
         roseType: data.roseType,
@@ -128,7 +132,7 @@ var charts = {
         axisLabel: {
           color: "rgba(156,179,228,1)",
           formatter: (value, index) => {
-            return value / 1000 + 'k';
+            return value;
           }
         },
         splitLine: {
@@ -146,12 +150,16 @@ var charts = {
       series: [{
         name: data.s_name,
         type: 'bar',
+        label: {
+          show: true,
+          position: "top"
+        },
         itemStyle: {
           color: (params) => {
             if(params.value > 0) {
               return data.barColor;
             }else{
-              return "#ccc";
+              return "#9fdabf";
             }
           },
           emphasis: {
@@ -254,14 +262,14 @@ var charts = {
       tooltip: {
         trigger: 'item',
         "confine": true,
-        // "formatter": (value) => { //自定义提示信息
-        //   let dataCon = value.data;
-        //   let txtCon = '地区名称：' + dataCon.name + '<br>设备位置：' + dataCon.position + '<br>监控点位：' + dataCon.value[2];
-        //   return txtCon;
-        // },
-        // textStyle: {
-        //   color: '#9cb3e6'
-        // }
+        "formatter": (value) => { //自定义提示信息
+          let dataCon = value.data;
+          let txtCon = '监测点：' + dataCon.name + "<br />" + "设备数量: " + dataCon.value[2];
+          return txtCon;
+        },
+        textStyle: {
+          color: '#9cb3e6'
+        }
       },
       //左下lengend
       visualMap: {
@@ -271,7 +279,8 @@ var charts = {
         splitNumber: 5, //共分5层
         left: 20,
         bottom: 20,
-        color: ['#50a3ba', '#eac736', '#d94e5d'], //颜色从高到低依次渐变
+        // color: ['#50a3ba', '#eac736', '#d94e5d'], //颜色按值大小从高到低依次渐变
+        color: ["#d53a35"],
         textStyle: {
           color: '#fff'
         }
@@ -280,6 +289,8 @@ var charts = {
       geo: {
         map: 'china',
         label: {
+          show: true,
+          color: "#9cb3e4",
           emphasis: {
             show: true,
             color: '#fff'
@@ -305,17 +316,17 @@ var charts = {
         data: data.data,
         symbolSize: 12,
         //直接在点上显示标签
-        label: {
-          // show: false,
+        // label: {
+          // show: true,
           // normal: {
           //   show: true
           // },
           // emphasis: {
           //   show: true
           // },
-          formatter: '{b}',
+          // formatter: '{b}',
           // offset: [15, -15], //文字的相对偏移
-        },
+        // },
         //标签的样式
         itemStyle: {
           emphasis: {

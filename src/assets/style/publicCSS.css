@@ -71,6 +71,7 @@
   -webkit-box-orient: vertical;
   word-break: break-all; /* 追加这一行代码 */
 }
+.oh{overflow:hidden;}
 
 /*外边距类*/
 /*上下左右外边距*/
@@ -322,7 +323,7 @@
   align-items: center;
   justify-content: space-between;
 }
-/*多行垂直居中并水平居中*/
+/*多行垂直排列并水平垂直居中*/
 .flex_line_c_m {
   display: flex;
   flex-direction: column;
@@ -379,6 +380,8 @@
 .fc6{color: #666;}
 .fc7{color: #777;}
 .fc8{color: #888;}
+.fcc{color: #ccc;}
+.fce{color: #eee;}
 .fcf{color: #fff;}
 /*背景层*/
 /*红色*/

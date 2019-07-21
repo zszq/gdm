@@ -21,8 +21,8 @@
           <img src="../assets/images/shezhi.png" alt>
         </a>
       </div>
-
-      <div class="info-wrap">
+      <!-- 查询历史数据 -->
+      <!-- <div class="info-wrap">
         <div class="mr30 fr">
           <el-select v-model="value" placeholder="请选择">
             <el-option
@@ -34,10 +34,10 @@
           </el-select>
           <el-button @click="findHistory">查询历史数据</el-button>
         </div>
-      </div>
+      </div> -->
     </div>
 
-    <!-- 中部 -->
+    <!-- 内容 -->
     <div class="main flex_lr">
       <!-- 左边数据 -->
       <div class="main-left flex_tb">
@@ -54,40 +54,40 @@
       <!-- 中间数据 -->
       <div class="main-center flex_tb_a">
         <div class="flex_lr h50">
-          <div class="wrap w100 mr20">
+          <div class="wrap w90 mr20">
             <v-chart ref="distribute"></v-chart>
           </div>
-          <div class="info fcf w40">
-            <h1 class="annunciate tac">地灾点威胁情况</h1>
-            <p class="pt10 pb10">地质灾害群测群防点：</p>
-            <ul class="list">
-              <li>威胁<span style="color: #FF7744 ;"> 114 </span>户</li>
-              <li>人数<span style="color: yellow;"> 1411 </span>人</li>
-              <li>房屋<span style="color: green;"> 2525 </span>间</li>
-              <li>威胁财产<span style="color: red;"> 27772 </span>万元</li>
-            </ul>
+          <div class="wrap w40">
+            <v-chart ref="device"></v-chart>
           </div>
         </div>
-        <div class="flex_lr h40"> 
-          <!-- TODO:更改高度适配中间 -->
-          <div class="wrap w60 mr20">
-            <v-chart ref="amount"></v-chart>
-          </div>
-          <div class="wrap w40">
-            <v-chart ref="rank"></v-chart>
+        <div class="listWarn oh h40">
+          <div class="h90 oh m10">
+            <table class="w100 h100 fcc">
+              <tr class="fwb">
+                <th>预警项目</th>
+                <th>预警时间</th>
+                <th>预警原因</th>
+              </tr>
+              <tr v-for="(item, index) in listWarning" :key="index" class="">
+                <td>{{item.location}}</td>
+                <td>{{item.time}}</td>
+                <td>{{item.cause}}</td>
+              </tr>
+            </table>
           </div>
         </div>
       </div>
       <!-- 右边数据 -->
       <div class="main-right flex_tb">
         <div class="container">
+          <v-chart ref="amount"></v-chart>
+        </div>
+        <div class="container">
           <v-chart ref="add"></v-chart>
         </div>
         <div class="container">
           <v-chart ref="reduce"></v-chart>
-        </div>
-        <div class="container">
-          <v-chart ref="dynamic"></v-chart>
         </div>
       </div>
     </div>
@@ -97,7 +97,7 @@
       <div class="msg-box">
         <p class="dib" style="padding-left:100%">
           <img src="../assets/images/laba.png" alt="消息">
-          <span>9527号地灾隐患点已成功核销隐患9527号地灾隐患点已成功核销隐患9527号地灾隐患点已成功核销隐患！</span>
+          <span>茂县石大关乡梯子槽滑坡监测点第9527号地灾隐患已成功核销！</span>
         </p>
       </div>
     </div>
@@ -118,7 +118,84 @@ export default {
     return {
       currentTime: "",
       options: [],
-      value: ''
+      value: '',
+      listWarning: [
+        {
+          time: "2019-07-22 07:45:10",
+          cause: "红色预警,日喀则市聂拉木县樟木口岸,监测点<地表位移2-01>每日变化速率(水平)高于预警值20.0mm/d到达71.2mm/d.",
+          location: "日喀则市聂拉木县樟木口岸"
+        },
+        {
+          time: "2019-07-22 05:43:16",
+          cause: "橙色预警,日喀则市聂拉木县樟木口岸,监测点<地表位移2-01>每日变化速率(水平)高于预警10.0mm/d到达71.2mm/d",
+          location: "日喀则市聂拉木县樟木口岸"
+        },
+        {
+          time: "2019-07-22 05:36:12",
+          cause: "红色预警,纳雍骔岭左家营煤矿,监测点<地表位移1-03>每日变化速率(竖向)绝对值大于预20.0mm/d到达-324.0mm/d",
+          location: "纳雍骔岭左家营煤矿"
+        },
+        {
+          time: "2019-07-22 03:22:14",
+          cause: "黄色预警,日喀则市聂拉木县樟木口岸,监测点<地表位移2-01>每日变化速率(水平)高于预警5.0mm/d到达71.2mm/d",
+          location: "日喀则市聂拉木县樟木口岸"
+        },
+        {
+          time: "2019-07-22 02:45:08",
+          cause: "红色预警,日喀则市聂拉木县樟木口岸,监测点<地表位移1-07>每日变化速率(竖向)绝对值大预警值20.0mm/d到达-352.7mm/d",
+          location: "日喀则市聂拉木县樟木口岸"
+        },
+        {
+          time: "2019-07-22 02:42:08",
+          cause: "橙色预警,日喀则市聂拉木县樟木口岸,监测点<地表位移1-07>每日变化速率(竖向)绝对值大预警值10.0mm/d到达-352.7mm/d",
+          location: "日喀则市聂拉木县樟木口岸"
+        },
+        {
+          time: "2019-07-22 02:26:08",
+          cause: "黄色预警,日喀则市聂拉木县樟木口岸,监测点<地表位移1-07>每日变化速率(竖向)绝对值大预警值5.0mm/d到达-352.7mm/d",
+          location: "日喀则市聂拉木县樟木口岸"
+        },
+        {
+          time: "2019-07-22 01:15:05",
+          cause: "黄色预警,福建省福清市建新水库,监测点<建新水库表面位移>小时变化速率(竖向)绝对值大警值72.0mm/d到达-115.7mm/d",
+          location: "福建省福清市建新水库"
+        },
+        {
+          time: "2019-07-22 01:10:32",
+          cause: "红色预警,日喀则市聂拉木县樟木口岸,监测点<地表位移2-05>每日变化速率(竖向)绝对值大预警值20.0mm/d到达-115到达224.8mm/d",
+          location: "日喀则市聂拉木县樟木口岸"
+        },
+        {
+          time: "2019-07-22 01:08:07",
+          cause: "黄色预警,日喀则市聂拉木县樟木口岸,监测点<地表位移2-03>每日变化速率(水平)高于预警5.0mm/d到达9. 2mm/d",
+          location: "日喀则市聂拉木县樟木口岸"
+        },
+        {
+          time: "2019-07-22 01:06:05",
+          cause: "橙色预警,日喀则市聂拉木县樟木口岸,监测点<地表位移2-05>每日变化速率(水平)高于预警10.0mm/到达41.2mm/d",
+          location: "日喀则市聂拉木县樟木口岸"
+        },
+        {
+          time: "2019-07-22 01:05:06",
+          cause: "黄色预警,日喀则市聂拉木县樟木口岸,监测点<地表位移1-08>每日变化速率(竖向)绝对值大预警值5.0mm/d到达5.1mm/d",
+          location: "日喀则市聂拉木县樟木口岸"
+        },
+        {
+          time: "2019-07-22 00:55:04",
+          cause: "黄色预警,日喀则市聂拉木县樟木口岸,监测点<地表位移2-05>每日变化速率(水平)高于预警5.0mm/d到达39.8mm/d.",
+          location: "日喀则市聂拉木县樟木口岸"
+        },
+        {
+          time: "2019-07-22 00:50:08",
+          cause: "橙色预警,纳雍骔岭左家营煤矿,监测点<地表位移1-03>每日变化速率(竖向)绝对值大于预10.0mm/d到达-324.0mm/d",
+          location: "纳雍骔岭左家营煤矿"
+        },
+        {
+          time: "2019-07-22 00:43:11",
+          cause: "红色预警,日喀则市聂拉木县樟木口岸,监测点<地表位移2-02>每日变化速率(竖向)绝对值大预警值20.0mm/d到达220.9mm/d",
+          location: "日喀则市聂拉木县樟木口岸"
+        }
+      ]
     };
   },
   created() {
@@ -174,14 +251,15 @@ export default {
       // 规模等级
       this.$refs.grade.handleChart({
         type: "pie",
-        title: "规模等级",
-        s_name: "规模等级",
+        title: "预警等级",
+        s_name: "预警等级",
         legend: "",
         data: [
-          {value:335, name:'特大型'},
-          {value:310, name:'大型'},
-          {value:234, name:'中型'},
-          {value:135, name:'小型'}
+          {value:10, name:'红色预警'},
+          {value:40, name:'橙色预警'},
+          {value:70, name:'黄色预警'},
+          {value:10, name:'蓝色预警'},
+		      {value:1120, name:'未预警设备'}
         ]
       });
       // 稳定性
@@ -196,32 +274,43 @@ export default {
           {value: 60,name: '稳定性较差'}
         ]
       });
+      // 设备状态比例
+      this.$refs.device.handleChart({
+        type: "pie",
+        title: "设备状态",
+        s_name: "设备状态",
+        legend: "",
+        data: [
+          {value: 5,name: '离线设备'},
+          {value: 98,name: '在线设备'}
+        ]
+      });
+      // 总数
+      this.$refs.amount.handleChart({
+        type: "bar",
+        barColor: "#9fdabf",
+        title: "地灾点总数",
+        s_name: "数量",
+        xAxis: ["四川", "西藏", "福建", "广西", "贵州", "河南"],
+        data: [80, 20, 38, 80, 70, 43]
+      });
       // 增加
       this.$refs.add.handleChart({
         type: "bar",
-        barColor: "#C63300",
+        barColor: "#d53a35",
         title: "地灾隐患点增加",
         s_name: "数量",
-        xAxis: ['北京', '上海', '广州', '深圳', '重庆', '天津', '大连', '大连', '大连', '大连', '大连', '大连'],
-        data: [1200, 2000, 1500, 8000, 7000, 1100, 1300, 1500, 5300, 1300, 1000, 1300]
+        xAxis: ["四川", "西藏", "福建", "广西", "贵州", "河南"],
+        data: [40, 10, 15, 20, 30, 11]
       });
       // 核销
       this.$refs.reduce.handleChart({
         type: "bar",
-        barColor: "#00AA00",
+        barColor: "#74c1ca",
         title: "地灾隐患点核销",
         s_name: "数量",
-        xAxis: ['北京', '上海', '广州', '深圳', '重庆', '天津', '大连', '大连', '大连', '大连', '大连', '大连'],
-        data: [1200, 2000, 1500, 8000, 7000, 1100, 1300, 1320, 1000, 1300, 3100, 1300]
-      });
-      // 动态
-      this.$refs.dynamic.handleChart({
-        type: "bar",
-        barColor: "#FF3333",
-        title: "地灾隐患点动态",
-        s_name: "数量",
-        xAxis: ['北京', '上海', '广州', '深圳', '重庆', '天津', '大连', '大连', '大连', '大连', '大连', '大连'],
-        data: [1200, -2000, 1500, 8000, -7000, -1100, 1300, 1800, 1300, 3300, 1300, 2300]
+        xAxis: ["四川", "西藏", "福建", "广西", "贵州", "河南"],
+        data: [12, 5, 20, 8, 11, 12]
       });
       // 地图分布图
       this.$refs.distribute.handleChart({
@@ -229,36 +318,19 @@ export default {
         title: "分布图",
         s_name: "分布点",
         data: [
-          {name: "上海", value:[121.48, 31.22, 25]},
-          {name: "鄂尔多斯", value:[109.781327, 39.608266, 12]},
-          {name: "厦门", value:[118.1, 24.46, 26]},
-          {name: "张家口", value:[114.87, 40.82, 31]},
-          {name: "青岛", value:[120.33, 36.07, 18]},
+          {name: "茂县石大关乡梯子槽滑坡", value:[103.676627,31.932229, 13]},
+          {name: "茂县黑虎乡四村滑坡", value:[103.752608,31.877082, 12]},
+          {name: "日喀则市聂拉木县樟木口岸", value:[185.972852,27.97483, 16]},
+          {name: "福建省福清市建新水库", value:[119.241932,25.616386, 13]},
+          {name: "河池市金城江区三中", value:[108.044396,24.693444, 14]},
+          {name: "纳雍骔岭左家营煤矿", value:[105.24758,26.70901, 15]},
+          {name: "拉萨墨竹工卡中学", value:[91.7419,29.842987, 18]},
+          {name: "嵩县旧县镇西店村前河组滑坡自动化监测", value:[111.869549,34.002271, 10]},
+          {name: "西峡县石灰岭村", value:[111.310566,33.627057, 15]},
+          {name: "四川集美隧道", value:[105.68369,28.062823, 17]},
+          {name: "纳雍县张家湾镇洒村老鹰岩", value:[105.444134,26.841475, 5]}
         ]
       });
-      // 地灾点总数
-      this.$refs.amount.handleChart({
-        type: "bar",
-        barColor: "#3ff9ee",
-        title: "地灾点总数",
-        s_name: "数量",
-        xAxis: ['北京', '上海', '广州', '深圳', '重庆', '天津', '大连', '大连', '大连', '大连', '大连', '大连'],
-        data: [1200, 2000, 1500, 8000, 7000, 1100, 1300, 1900, 6300, 1800, 4300, 1300]
-      });
-      // 监测级别
-      this.$refs.rank.handleChart({
-        type: "pie",
-        barColor: "#ccc",
-        title: "地灾点监测级别",
-        s_name: "数量",
-        roseType: "radius",
-        data: [
-          {value:400, name:'省级'},
-          {value:310, name:'市级'},
-          {value:235, name:'县级'}
-        ]
-      });
-      
     },
   }
 };
