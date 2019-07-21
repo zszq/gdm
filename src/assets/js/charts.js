@@ -22,13 +22,15 @@ var charts = {
       legend: {
         orient: 'vertical',
         left: 'left',
-        top: '60',
+        top: '50',
         data: data.legend,
         textStyle: {
           color: "rgba(156,179,228,1)"
         }
       },
-      color: ['#d53a35', '#9fdabf', '#334b5c', '#7fae90', '#6ab0b8', '#e98f6f'],
+      color: (() => {
+        return data.color ? data.color : ['#d53a35', '#9fdabf', '#334b5c', '#7fae90', '#6ab0b8', '#e98f6f'];
+      })(),
       series: [{
         name: data.s_name,
         type: 'pie',
@@ -36,7 +38,7 @@ var charts = {
         center: ['60%', '50%'],
         label: {
           show: true,
-          formatter: "{b}({d}%)"
+          formatter: "{d}%"
         },
         labelLine: {
           length: 8,
@@ -150,10 +152,10 @@ var charts = {
       series: [{
         name: data.s_name,
         type: 'bar',
-        label: {
-          show: true,
-          position: "top"
-        },
+        // label: {
+        //   show: true,
+        //   position: "top"
+        // },
         itemStyle: {
           color: (params) => {
             if(params.value > 0) {
@@ -289,7 +291,7 @@ var charts = {
       geo: {
         map: 'china',
         label: {
-          show: true,
+          show: false,
           color: "#9cb3e4",
           emphasis: {
             show: true,

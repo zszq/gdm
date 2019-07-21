@@ -278,6 +278,10 @@
 .flex_inline {
   display: inline-flex;
 }
+/* 不换行 */
+.nowrap {
+  white-space: nowrap;
+}
 /*自动换行*/
 .flex_wrap {
   display: flex;

@@ -151,6 +151,9 @@
   color: #9cb3e4;
   border-bottom: 1px solid #385265;
 }
+/* .listWarn table tr:first-child {
+  background: rgba(24,15,100,0.4);
+} */
 .listWarn table tr th {
   padding: 10px;
   color: #ccc;
